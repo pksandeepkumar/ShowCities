@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="texus.showcities.MainActivity">
+    tools:context="texus.showcities.MainActivity"
+    android:padding="@dimen/padding_large">
 
     <TextView
         android:id="@+id/tvName"
@@ -17,6 +18,7 @@
         android:layout_toLeftOf="@+id/tvDistance"
         android:singleLine="true"
         android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="City Name"/>
 
 
@@ -34,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Country NAME"
+        android:paddingTop="@dimen/padding_large"
         android:layout_below="@+id/tvName"/>
 
 

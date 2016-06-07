@@ -9,5 +9,11 @@
     android:fitsSystemWindows="true"
     tools:context="texus.showcities.MainActivity">
 
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:apiKey="@string/map_api_key"/>
+
 
 </RelativeLayout>

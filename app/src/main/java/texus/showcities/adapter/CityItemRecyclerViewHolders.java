@@ -4,6 +4,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
+
 import texus.showcities.R;
 import texus.showcities.datamodels.CityData;
 
@@ -38,11 +40,16 @@ public class CityItemRecyclerViewHolders extends RecyclerView.ViewHolder impleme
 
         tvName.setText( object.name );
 
-        tvDistance.setText(object.distance + " KM" );
+        tvDistance.setText(getRounded( object.distance )+ " KM" );
 
         tvCountry.setText(object.countryName);
 
 
+    }
+
+    public String getRounded( double value) {
+        BigDecimal a = new BigDecimal(value);
+        return "" + a.setScale(2, BigDecimal.ROUND_HALF_EVEN);
     }
 
 

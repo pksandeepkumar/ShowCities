@@ -11,6 +11,7 @@ import android.view.View;
 import java.util.ArrayList;
 
 import texus.showcities.adapter.CityItemRecyclerAdapter;
+import texus.showcities.adapter.SimpleDividerItemDecoration;
 import texus.showcities.datamodels.CityData;
 import texus.showcities.utils.Utility;
 
@@ -20,6 +21,7 @@ import texus.showcities.utils.Utility;
 public class CityListActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +38,13 @@ public class CityListActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) this.findViewById(R.id.recycler_view);
         ArrayList<CityData> datas = CityData.getParsed(Utility.readFromAssets("data.json", this));
         CityItemRecyclerAdapter adapter = new CityItemRecyclerAdapter(this, datas);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
-//        mLayoutManager.set
+
+        recyclerView.setHasFixedSize(true);
+
+        recyclerView.addItemDecoration(new SimpleDividerItemDecoration(this));
+
+        // use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);

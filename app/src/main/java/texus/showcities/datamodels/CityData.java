@@ -15,7 +15,7 @@ public class CityData extends JsonParserBase {
 
     public String adminCode1 =  "SG";
     public double lng =  9.00138;
-    public String distance =  "0.61344";
+    public double distance =  0.61344;
     public long geonameId =  10628563;
     public String toponymName =  "Habrütispitz";
     public String countryId =  "2658434";
@@ -42,7 +42,8 @@ public class CityData extends JsonParserBase {
 
                 instance.adminCode1 = getJsonAttributeValueString(jsonObject, "adminCode1");
                 instance.lng = Utility.parseDouble(getJsonAttributeValueString(jsonObject, "lng"));
-                instance.distance = getJsonAttributeValueString(jsonObject, "distance");
+                instance.distance = Utility.parseDouble(
+                        getJsonAttributeValueString(jsonObject, "distance"));
                 instance.geonameId = getJsonAttributeValueInt(jsonObject, "geonameId");
                 instance.toponymName = getJsonAttributeValueString(jsonObject, "toponymName");
                 instance.countryId = getJsonAttributeValueString(jsonObject, "countryId");
